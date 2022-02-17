@@ -10,7 +10,7 @@ module.exports = {
         body: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing eli.</p>',
         published: '2020-01-08 15:02:30',
         createdAt: new Date(),
-        updatedAt: new Date(),
+        updatedAt: new Date()
       }]),
       queryInterface.bulkInsert('Articles', [{
         name: 'Morning vinyasa flow routine',
@@ -19,7 +19,7 @@ module.exports = {
         body: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing eli.</p>',
         published: '2020-04-14 15:02:41',
         createdAt: new Date(),
-        updatedAt: new Date(),
+        updatedAt: new Date()
       }]),
       queryInterface.bulkInsert('Articles', [{
         name: 'Secrets of a yoga teacher',
@@ -28,7 +28,7 @@ module.exports = {
         body: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing eli.</p>',
         published: '2060-05-28 15:02:55',
         createdAt: new Date(),
-        updatedAt: new Date(),
+        updatedAt: new Date()
       }]),
     ])
   },
