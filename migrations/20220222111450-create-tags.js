@@ -1,21 +1,18 @@
 'use strict';
+
+const { UniqueConstraintError } = require("sequelize/types");
+
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('ArticleTags', {
+    await queryInterface.createTable('Tags', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      articleId: {
-        type: Sequelize.INTEGER,
-        references: { model: 'Articles', key: 'id' },
-        onDelete: 'CASCADE'
-      },
-      tagId: {
-        type: Sequelize.INTEGER,
-        references: { model: 'Tags', key:'id' }
+      name: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
@@ -28,6 +25,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('ArticleTags');
+    await queryInterface.dropTable('Tags');
   }
 };
