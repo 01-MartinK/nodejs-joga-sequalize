@@ -8,5 +8,6 @@ router.get('/article/:slug', articleController.getArticleBySlug);
 
 // posters
 router.post('/admin/article/create', articleAdminController.createArticle);
+router.post('/admin/article/delete/:id', articleAdminController.deleteArticle)
 
 module.exports = router;
