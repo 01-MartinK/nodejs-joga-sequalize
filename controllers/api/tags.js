@@ -4,17 +4,13 @@ const sequelize = new Sequelize('mysql://root:778Iv23N@localhost:3306/joga_seque
 const models = require('../../models')
 
 // show article by this slug
-const getAuthorByIdentifier = (req, res) => {
+const getTagByIdentifier = (req, res) => {
     let name_of_key = Object.keys(req.query)[0];
 
     if (name_of_key === 'id') {
         if (req.query.id === '') return res.status(400).json({ 'error': 'Invalid request' });
         else {
-            models.Author.findByPk(req.query.id, {
-                    include: [{
-                        model: models.Article
-                    }],
-                })
+            models.Tags.findByPk(req.query.id)
                 .then(author => {
                     console.log(author)
                     return res.status(200).json({ author });
@@ -29,13 +25,10 @@ const getAuthorByIdentifier = (req, res) => {
         } else if (req.query.q === '') {
             return res.status(400).json({ 'error': 'Invalid request' })
         } else {
-            models.Author.findOne({
+            models.Tags.findOne({
                     where: {
                         name: req.query.q
-                    },
-                    include: [{
-                        model: models.Article
-                    }],
+                    }
                 })
                 .then(author => {
                     console.log(author)
@@ -50,5 +43,5 @@ const getAuthorByIdentifier = (req, res) => {
 
 // export controller functions
 module.exports = {
-    getAuthorByIdentifier
+    getTagByIdentifier
 }
