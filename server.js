@@ -24,6 +24,21 @@ app.use('/article', articleRouter);
 app.use('/author', authorRouter);
 app.use('admin/article', articleRouter);
 
+const apiRouter = require('./routers/api');
+app.use('/api', apiRouter)
+
+app.get('/app/user', (req, res) => {
+    const user_id = req.query.id;
+    const token = req.query.token;
+    const geo = req.query.geo;
+
+    res.send({
+        'user_id': user_id,
+        'token': token,
+        'geo': geo
+    })
+});
+
 app.listen(3000, () => {
     console.log('Server running at localhost:3000');
 });
