@@ -4,7 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "mocha"
+        "test": "mocha test/helper 'test/*-spec.js'",
+        "start": "node ./server"
     },
     "author": "",
     "license": "ISC",
@@ -16,7 +17,8 @@
         "mocha": "^9.2.2",
         "mysql2": "^2.3.3",
         "request": "^2.88.2",
-        "sequelize": "^6.16.1"
+        "sequelize": "^6.16.1",
+        "sinon": "^13.0.1"
     },
     "devDependencies": {
         "sequelize-cli": "^6.4.1"

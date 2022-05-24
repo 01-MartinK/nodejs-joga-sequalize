@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const sinon = require("sinon");
 
 app.use(express.json());
 
@@ -43,3 +44,8 @@ app.get('/app/user', (req, res) => {
 app.listen(3000, () => {
     console.log('Server running at localhost:3000');
 });
+
+module.exports = { app }
+if (!module.parent) {
+    app()
+}
